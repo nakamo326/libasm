@@ -4,23 +4,23 @@
 
 ft_strcmp:
 	cmp		rdi, rsi
-	je		.eqend
+	je		eqend
 
-.loop:
+loop:
 	mov		byte al, [rdi]
 	mov		byte bl, [rsi]
 	cmp		al, bl
-	jne		.end
+	jne		end
 
 	inc		rdi
 	inc		rsi
-	jmp		.loop
+	jmp		loop
 
-.end:
+end:
 	sub		al, bl
 	movsx	rax, al
 	ret
 
-.eqend:
+eqend:
 	mov		rax, 0
 	ret

@@ -3,13 +3,12 @@
 	section .text
 
 ft_strlen:
-	mov rax, 0
-.loop:
-	cmp byte [rdi], 0
-	je .end
-	inc rax
-	inc rdi
-	jmp .loop
+	mov	rax, 0
+loop:
+	cmp	byte [rdi + rax], 0
+	je	end
+	inc	rax
+	jmp	loop
 
-.end:
+end:
 	ret

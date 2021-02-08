@@ -6,7 +6,7 @@
 #    By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 14:23:58 by ynakamot          #+#    #+#              #
-#    Updated: 2021/02/08 17:07:14 by ynakamot         ###   ########.fr        #
+#    Updated: 2021/02/08 22:36:12 by ynakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCFILE =   srcs/ft_strlen.s \
 			srcs/ft_strcpy.s \
-			srcs/ft_strcmp.s
+			srcs/ft_strcmp.s \
+			srcs/ft_write.s
 
 OBJECTS = $(SRCFILE:.s=.o)
 
@@ -25,10 +26,10 @@ $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
 %.o: %.s
-	nasm -felf64 $<
+	nasm -g -felf64 $<
 
 test: $(NAME)
-	gcc -g -o test test.c -lasm -L./
+	gcc -g -no-pie -o test test.c -lasm -L./
 	./test
 	$(RM) test
 
