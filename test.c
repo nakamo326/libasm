@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:28:24 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/08 20:50:14 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/08 22:41:22 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int main(void)
 	printf("%d\n",ft_strcmp(str1, str2));
 	printf("%d\n",strcmp(str3, str1));
 	printf("%d\n",ft_strcmp(str3, str1));
-		printf("%d\n",strcmp(str1, str3));
+	printf("%d\n",strcmp(str1, str3));
 	printf("%d\n",ft_strcmp(str1, str3));
 
 	printf("\nwrite-------------------------------\n");
