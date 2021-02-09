@@ -1,19 +1,17 @@
 	global ft_strcpy
 
 	section .text
-
 ft_strcpy:
-	mov	rax, rdi
+	xor rcx, rcx
 
 loop:
-	cmp	byte [rsi], 0
+	mov	r9b, byte [rsi + rcx]
+	mov	byte [rdi + rcx], r9b
+	cmp	r9b, 0
 	je	end
-	mov	rdi, [rsi]
-	inc	rdi
-	inc	rsi
+	inc	rcx
 	jmp	loop
 
 end:
-	inc	rdi
-	mov	rdi, 0
+	mov	rax, rdi
 	ret

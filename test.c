@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:28:24 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/08 22:41:22 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/09 14:44:27 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ int main(void)
 	printf("%s\n",ft_strcpy(str, ""));
 	free(str);
 
+	char *np = NULL;
+	str = malloc(20);
+//	printf("%s\n",strcpy(str, np));
+//	printf("%s\n",ft_strcpy(str, np));
+	free(str);
+
 	printf("\nstrcmp-------------------------------\n");
 	char *str1 = "hello,world!";
 	char *str2 = "hello,world!";
@@ -53,6 +59,15 @@ int main(void)
 	printf("\nwrite-------------------------------\n");
 	write(0, "Hello!\n", 7);
 	ft_write(0, "Hello!\n", 7);
+
+	printf("\nstrdup-------------------------------\n");
+	char *dest;
+
+	printf("%s,%p\n",str1,str1);
+	dest = strdup(str1);
+	printf("%s,%p\n",dest,dest);
+	dest = ft_strdup(str1);
+	printf("%s,%p\n",dest,dest);
 
 	return 0;
 

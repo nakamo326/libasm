@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:55:31 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/08 22:41:55 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/09 13:24:09 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ char	*ft_strcpy(char *dest, char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 ssize_t	ft_write(int fd, const void *buf, size_t count);
 ssize_t	ft_read(int fd, void *buf, size_t count);
+char	*ft_strdup(const char *src);
 
 #endif
