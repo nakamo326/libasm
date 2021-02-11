@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:55:31 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/09 13:24:09 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:15:11 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdio.h>
 # include <string.h>
 # include <errno.h>
+# include <stdbool.h>
+# include <fcntl.h>
 
 size_t	ft_strlen(const char *s);
 char	*ft_strcpy(char *dest, char *src);
