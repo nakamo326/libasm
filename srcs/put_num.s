@@ -29,4 +29,5 @@ inc_innerloop:
 	jmp		innerloop
 
 end:
+	neg		rax		;if sign_num is odd,negate rax
 	ret
