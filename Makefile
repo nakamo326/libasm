@@ -6,7 +6,7 @@
 #    By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 14:23:58 by ynakamot          #+#    #+#              #
-#    Updated: 2021/02/11 14:32:33 by ynakamot         ###   ########.fr        #
+#    Updated: 2021/02/12 16:54:47 by ynakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ SRCFILE =   srcs/ft_strlen.s \
 			srcs/ft_strcmp.s \
 			srcs/ft_write.s \
 			srcs/ft_read.s \
-			srcs/ft_strdup.s
+			srcs/ft_strdup.s \
+			srcs/ft_list_push_front.s \
+			srcs/ft_list_size.s
 
 OBJECTS = $(SRCFILE:.s=.o)
 
@@ -31,7 +33,7 @@ $(NAME): $(OBJECTS)
 	nasm -g -felf64 $<
 
 test: $(NAME)
-	gcc -g -no-pie -o test main.c -lasm -L./
+	gcc -g -o test main.c tests.c -lasm -L./
 	./test
 
 clean:

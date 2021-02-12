@@ -6,190 +6,39 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:28:24 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/11 15:14:17 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/12 16:39:24 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libasm.h"
+#include "./includes/libasm.h"
+#include "./includes/test.h"
 
-void	print_test_ret(bool ret)
+int		put_num(char *src, char *base, int base_len);
+
+void	strlen_testcase()
 {
-	if (ret == true)
-	{
-		printf("\033[32m[OK]\n\033[m");
-		return;
-	}
-	printf("\033[31m[KO]\n\033[m");
-}
-
-void	print_error_state()
-{
-	if (errno == 0)
-		printf("\033[32m errno = %d: %s\n\033[m", errno, strerror(errno));
-	else
-		printf("\033[31m errno = %d: %s\n\033[m", errno, strerror(errno));
-	errno = 0;
-	return;
-}
-
-void	test_strlen(char *str)
-{
-	size_t	lib_ret;
-	size_t	ft_ret;
-	bool	ret;
-
-	lib_ret = strlen(str);
-	ft_ret = ft_strlen(str);
-	if (lib_ret == ft_ret)
-		ret = true;
-	else
-		ret = false;
-	print_test_ret(ret);
-	return ;
-}
-
-void	test_strcpy(char *str, int len)
-{
-	char *lib_ret;
-	char *ft_ret;
-	bool ret;
-
-	lib_ret = malloc(len);
-	ft_ret = malloc(len);
-	lib_ret = strcpy(lib_ret, str);
-	ft_ret = ft_strcpy(ft_ret, str);
-	if (!strcmp(lib_ret, ft_ret))
-		ret = true;
-	else
-		ret = false;
-	print_test_ret(ret);
-	free(lib_ret);
-	free(ft_ret);
-	return ;
-}
-
-void	test_strcmp(char *str1, char *str2)
-{
-	bool	ret;
-	int		lib_ret;
-	int		ft_ret;
-
-	lib_ret = strcmp(str1, str2);
-	ft_ret = ft_strcmp(str1, str2);
-	if (lib_ret == ft_ret)
-		ret = true;
-	else
-		ret = false;
-	print_test_ret(ret);
-	return;
-}
-
-void	test_strdup(char *str)
-{
-	char *lib_ret;
-	char *ft_ret;
-	bool ret;
-
-	lib_ret = strdup(str);
-	print_error_state();
-	ft_ret = ft_strdup(str);
-	print_error_state();
-	if (!strcmp(lib_ret, ft_ret))
-		ret = true;
-	else
-		ret = false;
-	print_test_ret(ret);
-	free(lib_ret);
-	free(ft_ret);
-	return ;
-}
-
-void	test_write(int fd, char *buf)
-{
-	bool	ret;
-	int		lib_ret;
-	int		ft_ret;
-
-	printf("[ft_write]\n");
-	ft_ret = ft_write(fd, buf, 20);
-	print_error_state();
-	printf("[write]\n");
-	lib_ret = write(fd, buf, 20);
-	print_error_state();
-	printf("return value equality check...");
-	if (lib_ret == ft_ret)
-		ret = true;
-	else
-		ret = false;
-	print_test_ret(ret);
-	return ;
-}
-
-void	test_read_fd(int fd, char *buf)
-{
-	bool	ret;
-	int		lib_ret;
-	int		ft_ret;
-
-	printf("[ft_read]\n");
-	ft_ret = ft_read(fd, buf, 200);
-	print_error_state();
-	printf("[read]\n");
-	lib_ret = read(fd, buf, 200);
-	print_error_state();
-	printf("return value equality check...");
-	if (lib_ret == ft_ret)
-		ret = true;
-	else
-		ret = false;
-	print_test_ret(ret);
-	return ;
-}
-
-void	test_read(char *path, char *buf)
-{
-	bool	ret;
-	int		lib_ret;
-	int		ft_ret;
-	int		fd;
-
-	fd = open(path, O_RDONLY);
-	printf("[ft_read]\n");
-	ft_ret = ft_read(fd, buf, 200);
-	print_error_state();
-	close(fd);
-	fd = open(path, O_RDONLY);
-	printf("[read]\n");
-	lib_ret = read(fd, buf, 200);
-	print_error_state();
-	close(fd);
-	printf("return value equality check...");
-	if (lib_ret == ft_ret)
-		ret = true;
-	else
-		ret = false;
-	print_test_ret(ret);
-	return ;
-}
-
-int		main(void)
-{
-	size_t ret;
-	char *str;
-	char *dest;
-	char *np = NULL;
-
 	printf("\033[34m===strlen===\033[m\n");
+
 	test_strlen("Hello,world!");
 	test_strlen("");
 	test_strlen("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
 
+}
+
+void	strcpy_testcase()
+{
 	printf("\033[34m===strcpy===\033[m\n");
+
 	test_strcpy("Hello,world!", 13);
 	test_strcpy("", 1);
 	test_strcpy("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", 584);
 
+}
+
+void	strcmp_testcase()
+{
 	printf("\033[34m===strcmp===\033[m\n");
+
 	char *str1 = "hello,world!";
 	char *str2 = "hello,world!";
 	char *str3 = "hello,world";
@@ -200,18 +49,31 @@ int		main(void)
 	test_strcmp("asdfc", "asdfg");
 	test_strcmp("", "");
 
+}
+
+void	strdup_testcase()
+{
+	char	*dest;
+	char	*src = "hello,world!";
+
 	printf("\033[34m===strdup===\033[m\n");
 
-	printf("src:%s,%p\n",str1,str1);
-	dest = strdup(str1);
+	printf("src:%s,%p\n",src,src);
+	dest = strdup(src);
 	printf("lib:%s,%p\n",dest,dest);
-	dest = ft_strdup(str1);
+	dest = ft_strdup(src);
 	printf("ft :%s,%p\n",dest,dest);
 	test_strdup("aaaa\0aaaaaaaaaaaa\0aaaaaaaa\0aaaaaaaaaaaaa\0aaaaaaaaaaaaaaaa");
 	test_strdup("\n\t\v\r\n\0");
 
+}
+
+void	write_testcase()
+{
+	int		fd;
+	char	*np = NULL;
+
 	printf("\033[34m===write===\033[m\n");
-	int fd;
 
 	test_write(0, "Test string.\n");
 	fd = open("test.txt", O_RDONLY);
@@ -225,9 +87,15 @@ int		main(void)
 	fd = open("test.txt", O_RDWR);
 	test_write(fd, np);
 	close(fd);
+}
+
+void	read_testcase()
+{
+	int		fd;
+	char	*np = NULL;
+	char	buf[3000];
 
 	printf("\033[34m===read===\033[m\n");
-	char buf[3000];
 	//test_read_fd(0, buf);
 	fd = open("test.txt", O_WRONLY);
 	test_read_fd(fd, buf);
@@ -236,6 +104,69 @@ int		main(void)
 	test_read("invalid_file_path", buf);
 	test_read("test_read.txt", np);
 
-	return 0;
+}
 
+void	test_all()
+{
+	strlen_testcase();
+	strcpy_testcase();
+	strcmp_testcase();
+	strdup_testcase();
+	write_testcase();
+	read_testcase();
+	test_ft_list_push_front();
+}
+
+int		main(int argc, char **argv)
+{
+	int	num;
+
+	if (argc > 3)
+	{
+		write(1,"put 0(test all) or 1(test 1 func) as args.\n", 44);
+		exit(EXIT_FAILURE);
+	}
+	if (argc == 2)
+	{
+		if (!strcmp(argv[1], "strlen"))
+		{
+			strlen_testcase();
+			return 0;
+		}
+		else if (!strcmp(argv[1], "strcpy"))
+		{
+			strcpy_testcase();
+			return 0;
+		}
+		else if (!strcmp(argv[1], "strcmp"))
+		{
+			strcmp_testcase();
+			return 0;
+		}
+		else if (!strcmp(argv[1], "strdup"))
+		{
+			strdup_testcase();
+			return 0;
+		}
+		else if (!strcmp(argv[1], "write"))
+		{
+			write_testcase();
+			return 0;
+		}
+		else if (!strcmp(argv[1], "read"))
+		{
+			read_testcase();
+			return 0;
+		}
+		else
+		{
+			write(1,"wrong arg.\n", 12);
+			exit(EXIT_FAILURE);
+		}
+	}
+
+	test_all();
+
+
+	return 0;
 }
