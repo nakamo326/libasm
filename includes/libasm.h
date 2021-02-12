@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:55:31 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/12 15:41:07 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/12 16:48:19 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ ssize_t			ft_read(int fd, void *buf, size_t count);
 char			*ft_strdup(const char *src);
 
 void			ft_list_push_front(t_list **begin_list, void *data);
+int				ft_list_size(t_list *begin_list);
+
 
 #endif
