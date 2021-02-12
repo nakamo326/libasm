@@ -9,7 +9,7 @@ ft_strdup:
 	push	rdi			; stored ptr of src
 	call	ft_strlen	; check len of src
 	mov		rdi, rax	; mov len to arg of malloc
-	call	malloc
+	call	malloc WRT ..plt
 	cmp		rax, 0
 	je		err
 	mov		rdi, rax	; mov ptr to dest
@@ -19,7 +19,7 @@ ft_strdup:
 
 err:
 	mov		r8, 12
-	call	__errno_location
+	call	__errno_location WRT ..plt
 	mov		[rax], r8
 	mov		rax, 0
 	ret
