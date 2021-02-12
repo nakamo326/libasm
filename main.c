@@ -6,12 +6,14 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:28:24 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/12 13:38:11 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/12 14:10:17 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/libasm.h"
 #include "./includes/test.h"
+
+int		ft_test(int	n);
 
 void	strlen_testcase()
 {
@@ -163,5 +165,10 @@ int		main(int argc, char **argv)
 	}
 
 	test_all();
+
+	printf("%d\n", ft_test(8));
+	printf("%d\n", ft_test(3));
+	printf("%d\n", ft_test(235));
+	printf("%d\n", ft_test(90));
 	return 0;
 }
