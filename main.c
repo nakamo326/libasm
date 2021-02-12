@@ -6,14 +6,14 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:28:24 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/12 14:10:17 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/12 15:02:25 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/libasm.h"
 #include "./includes/test.h"
 
-int		ft_test(int	n);
+int		put_num(char *src, char *base, int base_len);
 
 void	strlen_testcase()
 {
@@ -166,9 +166,7 @@ int		main(int argc, char **argv)
 
 	test_all();
 
-	printf("%d\n", ft_test(8));
-	printf("%d\n", ft_test(3));
-	printf("%d\n", ft_test(235));
-	printf("%d\n", ft_test(90));
+	printf("%d\n",put_num("ff","0123456789abcdef", 16));
+	printf("%d\n",put_num("100","0123456789", 10));
 	return 0;
 }
