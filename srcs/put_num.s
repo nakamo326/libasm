@@ -31,3 +31,6 @@ inc_innerloop:
 end:
 	neg		rax		;if sign_num is odd,negate rax
 	ret
+
+;add base check (non space, sign)
+;add src check (non space, sign)

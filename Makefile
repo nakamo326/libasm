@@ -6,7 +6,7 @@
 #    By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 14:23:58 by ynakamot          #+#    #+#              #
-#    Updated: 2021/02/12 14:39:29 by ynakamot         ###   ########.fr        #
+#    Updated: 2021/02/12 15:30:53 by ynakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCFILE =   srcs/ft_strlen.s \
 			srcs/ft_write.s \
 			srcs/ft_read.s \
 			srcs/ft_strdup.s \
-			srcs/put_num.s
+			srcs/ft_list_push_front.s
 
 OBJECTS = $(SRCFILE:.s=.o)
 

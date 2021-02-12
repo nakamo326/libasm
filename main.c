@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:28:24 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/12 15:02:25 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/12 16:39:24 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void	test_all()
 	strdup_testcase();
 	write_testcase();
 	read_testcase();
+	test_ft_list_push_front();
 }
 
 int		main(int argc, char **argv)
@@ -166,7 +167,6 @@ int		main(int argc, char **argv)
 
 	test_all();
 
-	printf("%d\n",put_num("ff","0123456789abcdef", 16));
-	printf("%d\n",put_num("100","0123456789", 10));
+
 	return 0;
 }
