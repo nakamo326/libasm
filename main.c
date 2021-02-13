@@ -168,5 +168,7 @@ int		main(int argc, char **argv)
 	test_all();
 	printf("%d\n", ft_atoi_base("   --+++11111111","01"));
 
+	
+
 	return 0;
 }

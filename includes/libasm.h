@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:55:31 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/12 21:41:32 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/13 11:57:31 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char			*ft_strdup(const char *src);
 int				ft_atoi_base(char *str, char *base);
 void			ft_list_push_front(t_list **begin_list, void *data);
 int				ft_list_size(t_list *begin_list);
+void			ft_list_sort(t_list **begin_list, int (*cmp)());
+
 
 
 #endif

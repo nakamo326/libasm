@@ -5,13 +5,14 @@
 
 ft_list_size:
 	xor		rax, rax
-	xor		r8, r8
+	mov		rsi, rdi
 loop:
-	mov		r8, [rdi + 8]
-	cmp		r8 , 0
+	cmp		rdi , 0
 	je		end
 	inc		rax
+	mov		rdi, [rdi + 8]
 	jmp		loop
 
 end:
+	mov		rdi,rsi
 	ret
