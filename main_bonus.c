@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 11:56:02 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/13 13:17:57 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/14 10:38:29 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		main()
 	}
 	printf("\033[34m===ft_list_size===\033[m\n");
 	printf("%d\n",ft_list_size(list));
+	//printf("%s\n", (char *)(list->data));
 
 	printf("\033[34m===ft_list_sort===\033[m\n");
 

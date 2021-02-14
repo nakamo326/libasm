@@ -5,7 +5,7 @@
 
 ft_list_size:
 	xor		rax, rax
-	mov		rsi, rdi
+	push	rdi
 loop:
 	cmp		rdi , 0
 	je		end
@@ -14,5 +14,5 @@ loop:
 	jmp		loop
 
 end:
-	mov		rdi,rsi
+	pop		rdi
 	ret

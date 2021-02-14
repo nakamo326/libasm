@@ -5,12 +5,21 @@
 ;rsi ... int (*cmp)()
 
 ft_list_sort:
-	mov		r8, [rdi]		; *begin_list
+	;test
+	mov		rdi, [rdi]		; *begin_list
+	mov		r8, rdi
+	;;;;;;;;;;;;;;;;;;;;;;;;
+	mov		r9, [r8]		;*data
+	mov		r11, [r8 + 8]
+	mov		r9,	[r11]
+	;;;;;;;;;;;;;;;;;;;;;;;;;
 	mov		rdx, rsi		; ptr to func
+	push	rsi
 
 first_loop:
-	cmp		r8, 0
-	je		end
+	mov		r9, r8
+	cmp		r9, 0
+	jz		end
 	mov		r11, [rdi + 8]
 
 second_loop:
@@ -25,8 +34,8 @@ second_loop:
 
 exchange_data:
 	mov		r10, [r8]
-	mov		r8, [r11]
-	mov		r11, [r10]
+	mov		[r8], r11
+	mov		[r11], r10
 
 next_s_loop:
 	mov		r11, [r11 + 8]	;set r9.next

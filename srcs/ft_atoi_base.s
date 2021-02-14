@@ -46,10 +46,15 @@ base_len:
 	cmp		byte [rsi + rcx], 32
 	je		err_end
 	cmp		byte [rsi + rcx], 0
-	je		is_valid_base
+	je		base_len_check
 	inc		rcx
 	jmp		base_len
 
+
+base_len_check:
+	cmp		rcx, 2
+	jl		err_end
+	jmp		is_valid_base
 next_loop:
 	inc		r8
 	cmp		r8, rcx
@@ -58,6 +63,7 @@ next_loop:
 	xor		r9, r9
 	jmp		check_sign
 is_valid_base:
+
 	mov		r10b, byte [rsi + r8]
 	mov		r9, r8
 	add		r9, 1
@@ -99,7 +105,7 @@ calc_num:
 	push	r8			; store sign
 	xor		r8,r8
 	xor		r9,r9
-	mov		r10, rcx
+	mov		r10, rcx	;base_len
 	xor		rcx,rcx		;as a counter
 	xor		rax,rax		;result
 
@@ -118,6 +124,8 @@ innerloop:
 
 inc_innerloop:
 	inc		r9
+	cmp		r10, r9
+	jl		err_end
 	jmp		innerloop
 
 end:
