@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:28:24 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/15 11:01:15 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/15 17:57:52 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	strdup_testcase()
 void	write_testcase()
 {
 	int		fd;
+	char	*str = "test string.\n";
 	char	*np = NULL;
 
 	printf("\033[34m===write===\033[m\n");
@@ -80,12 +81,12 @@ void	write_testcase()
 	test_write(fd, "Test string.\n");
 	close(fd);
 	fd = open("test.txt", O_WRONLY);
-	test_write(fd, "Test string.\n");
+	test_write(fd, str);
 	close(fd);
 	fd = 42;
 	test_write(fd, "Test string.\n");
-	fd = open("test.txt", O_RDWR);
-	test_write(fd, np);
+	//fd = open("test.txt", O_RDWR);
+	//test_write(fd, np);
 	close(fd);
 }
 

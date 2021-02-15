@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 12:56:06 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/12 16:42:28 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/15 17:58:40 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,11 @@ void	test_write(int fd, char *buf)
 	int		lib_ret;
 	int		ft_ret;
 
-	printf("[ft_write]\n");
-	ft_ret = ft_write(fd, buf, 14);
-	print_error_state();
 	printf("[write]\n");
-	lib_ret = write(fd, buf, 14);
+	lib_ret = write(fd, buf, strlen(buf));
+	print_error_state();
+	printf("[ft_write]\n");
+	ft_ret = ft_write(fd, buf, strlen(buf));
 	print_error_state();
 	printf("return value equality check...");
 	if (lib_ret == ft_ret)
@@ -131,11 +131,11 @@ void	test_read_fd(int fd, char *buf)
 	int		lib_ret;
 	int		ft_ret;
 
-	printf("[ft_read]\n");
-	ft_ret = ft_read(fd, buf, 200);
-	print_error_state();
 	printf("[read]\n");
 	lib_ret = read(fd, buf, 200);
+	print_error_state();
+	printf("[ft_read]\n");
+	ft_ret = ft_read(fd, buf, 200);
 	print_error_state();
 	printf("return value equality check...");
 	if (lib_ret == ft_ret)
