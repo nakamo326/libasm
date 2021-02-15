@@ -3,10 +3,12 @@
 	section	.text
 
 ft_atoi_base:
+	xor		rax, rax
 	xor		rcx, rcx
 	xor		r8, r8
 	xor		r9, r9
 	xor		r10, r10
+	xor		r11, r11
 	jmp		check_space
 
 remove_space:
@@ -59,7 +61,6 @@ next_loop:
 	inc		r8
 	cmp		r8, rcx
 	jne		is_valid_base
-	xor		r8, r8
 	xor		r9, r9
 	jmp		check_sign
 is_valid_base:
@@ -76,7 +77,7 @@ base_check_loop:
 	jmp		base_check_loop
 
 inc_minus:
-	inc		r8
+	inc		r11
 
 inc_counter:
 	inc		r9
@@ -86,28 +87,26 @@ check_sign:
 	je		inc_counter
 	cmp		byte [rdi + r9], 45 ;-
 	je		inc_minus
-	and		r8, 0x1
+	and		r11, 0x1
 	jz		set_plus
-	mov		r8, 1
+	mov		r11, 1
 	add		rdi, r9
 	jmp		calc_num
 
 set_plus:
-	mov		r8, 0
+	mov		r11, 0
 	add		rdi, r9
 	jmp		calc_num
 
-;r8 ... sign if num is minus 1,
+;r11 ... sign if num is minus 1,
 ;rcx ... base_len
 ;rdi ... src
 ;rsi ... base
 calc_num:
-	push	r8			; store sign
-	xor		r8,r8
-	xor		r9,r9
-	mov		r10, rcx	;base_len
-	xor		rcx,rcx		;as a counter
-	xor		rax,rax		;result
+	xor		r8, r8
+	xor		r9, r9
+	mov		r10, rcx		;base_len
+	xor		rcx, rcx		;as a counter
 
 loop_start:
 	mov		r8b, byte [rdi + rcx]
@@ -124,13 +123,12 @@ innerloop:
 
 inc_innerloop:
 	inc		r9
-	cmp		r10, r9
-	jl		err_end
+	cmp		r9, r10
+	je		end
 	jmp		innerloop
 
 end:
-	pop		r8
-	cmp		r8, 1
+	cmp		r11, 1
 	je		negate_end
 	ret
 
@@ -139,5 +137,4 @@ negate_end:
 	ret
 
 err_end:
-	mov		rax, 0
 	ret

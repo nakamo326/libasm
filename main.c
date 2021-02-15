@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:28:24 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/12 22:49:55 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/15 11:01:15 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,9 +166,6 @@ int		main(int argc, char **argv)
 	}
 
 	test_all();
-	printf("%d\n", ft_atoi_base("   --+++11111111","01"));
-
-	
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 #    By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 14:23:58 by ynakamot          #+#    #+#              #
-#    Updated: 2021/02/14 00:07:04 by ynakamot         ###   ########.fr        #
+#    Updated: 2021/02/15 13:14:07 by ynakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,14 +38,17 @@ bonus: $(OBJECTS) $(B_OBJECTS)
 	ar rcs $(NAME) $(OBJECTS) $(B_OBJECTS)
 
 %.o: %.s
-	nasm -g -felf64 $<
+	nasm -F dwarf -g -felf64 $<
 
-test: $(NAME)
+test: bonus
 	gcc -g -o test main.c tests.c -lasm -L./
 	./test
 
-bonustest: bonus
-	gcc -g -o test main_bonus.c -lasm -L./
+bonustest: all $(B_OBJECTS)
+	gcc -g -ggdb -o test main_bonus.c $(B_OBJECTS) -lasm -L./
+
+atoi: $(B_OBJECTS)
+	gcc -g -ggdb -o test atoi_test.c $(B_OBJECTS)
 
 clean:
 	$(RM) $(OBJECTS) $(B_OBJECTS)

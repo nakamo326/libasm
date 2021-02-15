@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 12:48:52 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/12 16:37:56 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/15 12:24:21 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ void	test_write(int fd, char *buf);
 void	test_read_fd(int fd, char *buf);
 void	test_read(char *path, char *buf);
 void	test_ft_list_push_front();
-
 
 #endif
