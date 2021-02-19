@@ -6,7 +6,7 @@
 #    By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 14:23:58 by ynakamot          #+#    #+#              #
-#    Updated: 2021/02/15 13:14:07 by ynakamot         ###   ########.fr        #
+#    Updated: 2021/02/19 16:42:57 by ynakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,11 @@ SRCFILE =   srcs/ft_strlen.s \
 			srcs/ft_strdup.s \
 
 
-B_SRCFILE = srcs/ft_atoi_base.s \
-			srcs/ft_list_push_front.s \
-			srcs/ft_list_size.s \
-			srcs/ft_list_sort.s
+B_SRCFILE = srcs/ft_atoi_base_bonus.s \
+			srcs/ft_list_push_front_bonus.s \
+			srcs/ft_list_size_bonus.s \
+			srcs/ft_list_sort_bonus.s \
+			srcs/ft_list_remove_if_bonus.s
 
 OBJECTS = $(SRCFILE:.s=.o)
 B_OBJECTS = $(B_SRCFILE:.s=.o)
