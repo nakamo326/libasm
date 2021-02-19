@@ -10,6 +10,8 @@ loop:
 	mov		al, byte [rdi + rcx]
 	cmp		al, byte [rsi + rcx]
 	jne		end
+	cmp		al, 0
+	je		end
 	inc		rcx
 	jmp		loop
 
