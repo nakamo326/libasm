@@ -6,7 +6,7 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 12:56:06 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/15 17:58:40 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/20 13:21:59 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,27 +170,4 @@ void	test_read(char *path, char *buf)
 		ret = false;
 	print_test_ret(ret);
 	return ;
-}
-
-void	test_ft_list_push_front()
-{
-	char	*data = "test string";
-	t_list list;
-	t_list *start;
-	t_list **begin_list;
-
-	start = &list;
-	begin_list = &start;
-	printf("\033[34m===ft_list_push_front===\033[m\n");
-	printf("*data             : %p\n", data);
-	//printf("start             : %p\n", start);
-	//printf("start->next       : %p\n", start->next);
-	printf("(*b_list)         : %p\n", (*begin_list));
-	printf("(*b_list)->next   : %p\n", (*begin_list)->next);
-	ft_list_push_front(begin_list, (void *)data);
-	printf("---after---\n");
-	printf("(*b_list)(new elm): %p\n", (*begin_list));
-	printf("(*b_list)->data   : %p\n", (*begin_list)->data);
-	printf("(*b_list)->next   : %p\n", (*begin_list)->next);
-	printf("(*b_l)->next->next: %p\n", (*begin_list)->next->next);
 }

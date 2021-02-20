@@ -6,12 +6,14 @@
 /*   By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 10:28:24 by ynakamot          #+#    #+#             */
-/*   Updated: 2021/02/15 17:57:52 by ynakamot         ###   ########.fr       */
+/*   Updated: 2021/02/20 13:22:54 by ynakamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/libasm.h"
 #include "./includes/test.h"
+
+//each test code is in test.c
 
 int		put_num(char *src, char *base, int base_len);
 
@@ -42,12 +44,18 @@ void	strcmp_testcase()
 	char *str1 = "hello,world!";
 	char *str2 = "hello,world!";
 	char *str3 = "hello,world";
+	char *str4 = "a";
+	char *str5 = "a";
 
 	test_strcmp(str1, str2);
 	test_strcmp(str1, str3);
 	test_strcmp(str3, str1);
 	test_strcmp("asdfc", "asdfg");
 	test_strcmp("", "");
+	test_strcmp(str4, str5);
+	test_strcmp(str4, "a");
+	test_strcmp("ab", str4);
+	printf("%d\n",ft_strcmp(str4, "ab"));
 
 }
 
@@ -63,6 +71,7 @@ void	strdup_testcase()
 	printf("lib:%s,%p\n",dest,dest);
 	dest = ft_strdup(src);
 	printf("ft :%s,%p\n",dest,dest);
+
 	test_strdup("aaaa\0aaaaaaaaaaaa\0aaaaaaaa\0aaaaaaaaaaaaa\0aaaaaaaaaaaaaaaa");
 	test_strdup("\n\t\v\r\n\0");
 
@@ -115,7 +124,6 @@ void	test_all()
 	strdup_testcase();
 	write_testcase();
 	read_testcase();
-	test_ft_list_push_front();
 }
 
 int		main(int argc, char **argv)
