@@ -14,6 +14,14 @@ ft_list_remove_if:
 	mov		[rsp + 16], rdx		;rdx ... int (*cmp)()
 	mov		[rsp + 24], rcx		;rcx ... void (*free_fct)(void *))
 
+nullcheck:
+	cmp		rdi, 0
+	je		end
+	cmp		rdx, 0
+	je		end
+	cmp		rcx, 0
+	je		end
+
 start:
 	mov		r9, [rsp]				;ptr from before elm
 	mov		r8, [r9]			; (ptr to tlist)

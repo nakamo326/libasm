@@ -8,6 +8,7 @@ ft_list_sort:
 	mov		[rsp], rdi		; rdi ... **begin_list
 	mov		[rsp + 8], rsi	; rsi ... int (*cmp)()
 
+nullcheck:
 	cmp		rdi, 0
 	je		end
 	cmp		rsi, 0
